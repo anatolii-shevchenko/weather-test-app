@@ -8,6 +8,7 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "TSWeatherProvider.h"
 
 @interface MasterViewController ()
 
@@ -16,12 +17,15 @@
 
 @implementation MasterViewController
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
-
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    
+    TSWeatherProvider *weatherProvider = [[TSWeatherProvider alloc] initWithAPIKey:@"ad4537fa672786f7d9cffc56dff70"];
+    [weatherProvider weatherForLocation:@"London" days:5 withBlock:^(TSWeatherData *data) {
+        
+    }];
+    
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 

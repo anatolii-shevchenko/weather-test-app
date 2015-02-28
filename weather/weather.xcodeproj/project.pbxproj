@@ -15,6 +15,9 @@
 		1A20EF871AA1A13D003BE111 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A20EF861AA1A13D003BE111 /* Images.xcassets */; };
 		1A20EF8A1AA1A13E003BE111 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A20EF881AA1A13E003BE111 /* LaunchScreen.xib */; };
 		1A20EF961AA1A13E003BE111 /* weatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A20EF951AA1A13E003BE111 /* weatherTests.m */; };
+		1A20EFA51AA245F5003BE111 /* TSWeatherProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A20EFA41AA245F5003BE111 /* TSWeatherProvider.m */; };
+		1A20EFAB1AA24AE9003BE111 /* TSWeatherData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A20EFAA1AA24AE9003BE111 /* TSWeatherData.m */; };
+		1A20EFB11AA2637D003BE111 /* TSWeatherDayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A20EFB01AA2637D003BE111 /* TSWeatherDayData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,12 @@
 		1A20EF8F1AA1A13E003BE111 /* weatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A20EF941AA1A13E003BE111 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A20EF951AA1A13E003BE111 /* weatherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = weatherTests.m; sourceTree = "<group>"; };
+		1A20EFA31AA245F5003BE111 /* TSWeatherProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSWeatherProvider.h; path = model/TSWeatherProvider.h; sourceTree = "<group>"; };
+		1A20EFA41AA245F5003BE111 /* TSWeatherProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSWeatherProvider.m; path = model/TSWeatherProvider.m; sourceTree = "<group>"; };
+		1A20EFA91AA24AE9003BE111 /* TSWeatherData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSWeatherData.h; path = model/TSWeatherData.h; sourceTree = "<group>"; };
+		1A20EFAA1AA24AE9003BE111 /* TSWeatherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSWeatherData.m; path = model/TSWeatherData.m; sourceTree = "<group>"; };
+		1A20EFAF1AA2637D003BE111 /* TSWeatherDayData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSWeatherDayData.h; path = model/TSWeatherDayData.h; sourceTree = "<group>"; };
+		1A20EFB01AA2637D003BE111 /* TSWeatherDayData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSWeatherDayData.m; path = model/TSWeatherDayData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +93,7 @@
 		1A20EF751AA1A13D003BE111 /* weather */ = {
 			isa = PBXGroup;
 			children = (
+				1A20EF9F1AA243E0003BE111 /* model */,
 				1A20EF7A1AA1A13D003BE111 /* AppDelegate.h */,
 				1A20EF7B1AA1A13D003BE111 /* AppDelegate.m */,
 				1A20EF7D1AA1A13D003BE111 /* MasterViewController.h */,
@@ -122,6 +132,19 @@
 				1A20EF941AA1A13E003BE111 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1A20EF9F1AA243E0003BE111 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				1A20EFA31AA245F5003BE111 /* TSWeatherProvider.h */,
+				1A20EFA41AA245F5003BE111 /* TSWeatherProvider.m */,
+				1A20EFA91AA24AE9003BE111 /* TSWeatherData.h */,
+				1A20EFAA1AA24AE9003BE111 /* TSWeatherData.m */,
+				1A20EFAF1AA2637D003BE111 /* TSWeatherDayData.h */,
+				1A20EFB01AA2637D003BE111 /* TSWeatherDayData.m */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,9 +247,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A20EFA51AA245F5003BE111 /* TSWeatherProvider.m in Sources */,
 				1A20EF7C1AA1A13D003BE111 /* AppDelegate.m in Sources */,
 				1A20EF7F1AA1A13D003BE111 /* MasterViewController.m in Sources */,
 				1A20EF791AA1A13D003BE111 /* main.m in Sources */,
+				1A20EFAB1AA24AE9003BE111 /* TSWeatherData.m in Sources */,
+				1A20EFB11AA2637D003BE111 /* TSWeatherDayData.m in Sources */,
 				1A20EF821AA1A13D003BE111 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +444,7 @@
 				1A20EF9B1AA1A13E003BE111 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A20EF9C1AA1A13E003BE111 /* Build configuration list for PBXNativeTarget "weatherTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +453,7 @@
 				1A20EF9E1AA1A13E003BE111 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
