@@ -1,5 +1,5 @@
 //
-//  DetailViewController.h
+//  TSLocationWeatherController.h
 //  weather
 //
 //  Created by Tolik on 2/28/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController
+@interface TSLocationWeatherController : UIViewController
 
 @property (strong, nonatomic) id detailItem;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;

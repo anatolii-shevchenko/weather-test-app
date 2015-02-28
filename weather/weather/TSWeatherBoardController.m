@@ -1,48 +1,35 @@
 //
-//  MasterViewController.m
+//  TSWeatherBoardController.m
 //  weather
 //
 //  Created by Tolik on 2/28/15.
 //  Copyright (c) 2015 Tolik Shevchenko. All rights reserved.
 //
 
-#import "MasterViewController.h"
-#import "DetailViewController.h"
+#import "TSWeatherBoardController.h"
+#import "TSLocationWeatherController.h"
 #import "TSWeatherProvider.h"
 
-@interface MasterViewController ()
-
-@property NSMutableArray *objects;
+@interface TSWeatherBoardController ()
+@property NSMutableArray *locationsArray;
 @end
 
-@implementation MasterViewController
+@implementation TSWeatherBoardController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    self.locationsArray = [[NSMutableArray alloc] init];
     TSWeatherProvider *weatherProvider = [[TSWeatherProvider alloc] initWithAPIKey:@"ad4537fa672786f7d9cffc56dff70"];
     [weatherProvider weatherForLocation:@"London" days:5 withBlock:^(TSWeatherData *data) {
         
     }];
-    
-    // Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)insertNewObject:(id)sender {
-    if (!self.objects) {
-        self.objects = [[NSMutableArray alloc] init];
-    }
-    [self.objects insertObject:[NSDate date] atIndex:0];
+- (void)addNewLocation:(id)sender
+{
+    [self.locationsArray insertObject:[NSDate date] atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -52,7 +39,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.objects[indexPath.row];
+        NSDate *object = self.locationsArray[indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
     }
 }
@@ -64,13 +51,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.objects.count;
+    return self.locationsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = self.objects[indexPath.row];
+    NSDate *object = self.locationsArray[indexPath.row];
     cell.textLabel.text = [object description];
     return cell;
 }
@@ -82,7 +69,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.objects removeObjectAtIndex:indexPath.row];
+        [self.locationsArray removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

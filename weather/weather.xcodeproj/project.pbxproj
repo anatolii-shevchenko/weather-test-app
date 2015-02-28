@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		1A20EF791AA1A13D003BE111 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A20EF781AA1A13D003BE111 /* main.m */; };
 		1A20EF7C1AA1A13D003BE111 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A20EF7B1AA1A13D003BE111 /* AppDelegate.m */; };
-		1A20EF7F1AA1A13D003BE111 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A20EF7E1AA1A13D003BE111 /* MasterViewController.m */; };
-		1A20EF821AA1A13D003BE111 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A20EF811AA1A13D003BE111 /* DetailViewController.m */; };
+		1A20EF7F1AA1A13D003BE111 /* TSWeatherBoardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A20EF7E1AA1A13D003BE111 /* TSWeatherBoardController.m */; };
+		1A20EF821AA1A13D003BE111 /* TSLocationWeatherController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A20EF811AA1A13D003BE111 /* TSLocationWeatherController.m */; };
 		1A20EF851AA1A13D003BE111 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A20EF831AA1A13D003BE111 /* Main.storyboard */; };
 		1A20EF871AA1A13D003BE111 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A20EF861AA1A13D003BE111 /* Images.xcassets */; };
 		1A20EF8A1AA1A13E003BE111 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A20EF881AA1A13E003BE111 /* LaunchScreen.xib */; };
@@ -18,6 +18,7 @@
 		1A20EFA51AA245F5003BE111 /* TSWeatherProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A20EFA41AA245F5003BE111 /* TSWeatherProvider.m */; };
 		1A20EFAB1AA24AE9003BE111 /* TSWeatherData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A20EFAA1AA24AE9003BE111 /* TSWeatherData.m */; };
 		1A20EFB11AA2637D003BE111 /* TSWeatherDayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A20EFB01AA2637D003BE111 /* TSWeatherDayData.m */; };
+		1AC968DA1AA27F8500D81538 /* TSAddLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC968D91AA27F8500D81538 /* TSAddLocationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +37,10 @@
 		1A20EF781AA1A13D003BE111 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1A20EF7A1AA1A13D003BE111 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1A20EF7B1AA1A13D003BE111 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1A20EF7D1AA1A13D003BE111 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		1A20EF7E1AA1A13D003BE111 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		1A20EF801AA1A13D003BE111 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		1A20EF811AA1A13D003BE111 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		1A20EF7D1AA1A13D003BE111 /* TSWeatherBoardController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSWeatherBoardController.h; sourceTree = "<group>"; };
+		1A20EF7E1AA1A13D003BE111 /* TSWeatherBoardController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSWeatherBoardController.m; sourceTree = "<group>"; };
+		1A20EF801AA1A13D003BE111 /* TSLocationWeatherController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSLocationWeatherController.h; sourceTree = "<group>"; };
+		1A20EF811AA1A13D003BE111 /* TSLocationWeatherController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSLocationWeatherController.m; sourceTree = "<group>"; };
 		1A20EF841AA1A13D003BE111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A20EF861AA1A13D003BE111 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1A20EF891AA1A13E003BE111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -52,6 +53,8 @@
 		1A20EFAA1AA24AE9003BE111 /* TSWeatherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSWeatherData.m; path = model/TSWeatherData.m; sourceTree = "<group>"; };
 		1A20EFAF1AA2637D003BE111 /* TSWeatherDayData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSWeatherDayData.h; path = model/TSWeatherDayData.h; sourceTree = "<group>"; };
 		1A20EFB01AA2637D003BE111 /* TSWeatherDayData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSWeatherDayData.m; path = model/TSWeatherDayData.m; sourceTree = "<group>"; };
+		1AC968D81AA27F8500D81538 /* TSAddLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAddLocationController.h; sourceTree = "<group>"; };
+		1AC968D91AA27F8500D81538 /* TSAddLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAddLocationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,10 +99,12 @@
 				1A20EF9F1AA243E0003BE111 /* model */,
 				1A20EF7A1AA1A13D003BE111 /* AppDelegate.h */,
 				1A20EF7B1AA1A13D003BE111 /* AppDelegate.m */,
-				1A20EF7D1AA1A13D003BE111 /* MasterViewController.h */,
-				1A20EF7E1AA1A13D003BE111 /* MasterViewController.m */,
-				1A20EF801AA1A13D003BE111 /* DetailViewController.h */,
-				1A20EF811AA1A13D003BE111 /* DetailViewController.m */,
+				1AC968D81AA27F8500D81538 /* TSAddLocationController.h */,
+				1AC968D91AA27F8500D81538 /* TSAddLocationController.m */,
+				1A20EF7D1AA1A13D003BE111 /* TSWeatherBoardController.h */,
+				1A20EF7E1AA1A13D003BE111 /* TSWeatherBoardController.m */,
+				1A20EF801AA1A13D003BE111 /* TSLocationWeatherController.h */,
+				1A20EF811AA1A13D003BE111 /* TSLocationWeatherController.m */,
 				1A20EF831AA1A13D003BE111 /* Main.storyboard */,
 				1A20EF861AA1A13D003BE111 /* Images.xcassets */,
 				1A20EF881AA1A13E003BE111 /* LaunchScreen.xib */,
@@ -248,12 +253,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A20EFA51AA245F5003BE111 /* TSWeatherProvider.m in Sources */,
+				1AC968DA1AA27F8500D81538 /* TSAddLocationController.m in Sources */,
 				1A20EF7C1AA1A13D003BE111 /* AppDelegate.m in Sources */,
-				1A20EF7F1AA1A13D003BE111 /* MasterViewController.m in Sources */,
+				1A20EF7F1AA1A13D003BE111 /* TSWeatherBoardController.m in Sources */,
 				1A20EF791AA1A13D003BE111 /* main.m in Sources */,
 				1A20EFAB1AA24AE9003BE111 /* TSWeatherData.m in Sources */,
 				1A20EFB11AA2637D003BE111 /* TSWeatherDayData.m in Sources */,
-				1A20EF821AA1A13D003BE111 /* DetailViewController.m in Sources */,
+				1A20EF821AA1A13D003BE111 /* TSLocationWeatherController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

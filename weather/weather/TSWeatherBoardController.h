@@ -1,5 +1,5 @@
 //
-//  MasterViewController.h
+//  TSWeatherBoardController.h
 //  weather
 //
 //  Created by Tolik on 2/28/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MasterViewController : UITableViewController
-
-
+@interface TSWeatherBoardController : UITableViewController
 @end
 

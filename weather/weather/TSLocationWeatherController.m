@@ -1,18 +1,18 @@
 //
-//  DetailViewController.m
+//  TSLocationWeatherController.m
 //  weather
 //
 //  Created by Tolik on 2/28/15.
 //  Copyright (c) 2015 Tolik Shevchenko. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "TSLocationWeatherController.h"
 
-@interface DetailViewController ()
+@interface TSLocationWeatherController ()
 
 @end
 
-@implementation DetailViewController
+@implementation TSLocationWeatherController
 
 #pragma mark - Managing the detail item
 
@@ -36,11 +36,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self configureView];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
