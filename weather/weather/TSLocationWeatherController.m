@@ -16,6 +16,12 @@
 
 @implementation TSLocationWeatherController
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.navigationController.navigationBar.topItem.title = @"";
+}
+
 - (void)setLocation:(NSString *)location
 {
     self.navigationItem.title = location;
@@ -26,12 +32,7 @@
     return self.navigationItem.title;
 }
 
-#pragma mark - Table View
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
+#pragma mark - table view datasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -41,9 +42,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TSWeatherDayCell *cell = (TSWeatherDayCell *)[tableView dequeueReusableCellWithIdentifier:@"TSWeatherDayCell" forIndexPath:indexPath];
-    
     cell.dayData = self.weatherData.daysWeather[indexPath.row];
-    
     return cell;
 }
 

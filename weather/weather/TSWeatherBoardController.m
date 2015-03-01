@@ -84,12 +84,7 @@
     }
 }
 
-#pragma mark - TableView 
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
+#pragma mark - table view datasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
