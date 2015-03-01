@@ -26,7 +26,9 @@
     if (nil == formatter)
     {
         formatter = [[NSDateFormatter alloc] init];
-        formatter.dateFormat = @"yyyy-MM-dd";
+        formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"EEEEdMMM"
+                                                               options:0
+                                                                locale:[NSLocale currentLocale]];
         formatter.timeZone = 0;
     }
     return [formatter stringFromDate:date];
