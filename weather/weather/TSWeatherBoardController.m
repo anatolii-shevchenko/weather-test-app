@@ -20,6 +20,7 @@ static NSString *const kTSLocationsStoringKey = @"locations";
 @property (nonatomic, strong) NSMutableArray *locationsArray;
 @property (nonatomic, strong) NSMutableDictionary *locationsDataDictionary;
 @property (nonatomic, strong) TSWeatherProvider *weatherProvider;
+@property (nonatomic, assign) NSUInteger updatedItemsCount;
 
 - (IBAction)presentAddLocationController:(id)sender;
 
@@ -30,6 +31,9 @@ static NSString *const kTSLocationsStoringKey = @"locations";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(loadDataForAllLocations) forControlEvents:UIControlEventValueChanged];
     
     self.locationsDataDictionary = [[NSMutableDictionary alloc] init];
     self.weatherProvider = [[TSWeatherProvider alloc] initWithAPIKey:@"ad4537fa672786f7d9cffc56dff70"];
@@ -88,6 +92,12 @@ static NSString *const kTSLocationsStoringKey = @"locations";
             [self.locationsDataDictionary setObject:data forKey:location];
             [self.tableView reloadData];
         }
+        
+        self.updatedItemsCount++;
+        if (self.updatedItemsCount == self.locationsArray.count)
+        {
+            [self.refreshControl endRefreshing];
+        }
     }];
 }
 
@@ -104,7 +114,12 @@ static NSString *const kTSLocationsStoringKey = @"locations";
 - (void)restoreLocations
 {
     self.locationsArray = [[NSUserDefaults standardUserDefaults] objectForKey:kTSLocationsStoringKey];
-    
+    [self loadDataForAllLocations];
+}
+
+- (void)loadDataForAllLocations
+{
+    self.updatedItemsCount = 0;
     for (NSString *location in self.locationsArray)
     {
         [self loadDataForLocation:location];
