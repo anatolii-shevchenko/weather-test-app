@@ -7,6 +7,7 @@
 //
 
 #import "TSAddLocationController.h"
+#import "TSWeatherBoardController.h"
 
 @interface TSAddLocationController ()
 
@@ -26,6 +27,7 @@
 
 - (IBAction)onDone:(id)sender
 {
+    [self.boardController addLocation:self.locationField.text];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

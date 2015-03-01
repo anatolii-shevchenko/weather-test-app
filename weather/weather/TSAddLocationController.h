@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TSAddLocationController : UIViewController
+@class TSWeatherBoardController;
 
+@interface TSAddLocationController : UIViewController
+@property (nonatomic, strong) TSWeatherBoardController *boardController;
 @end

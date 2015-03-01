@@ -7,6 +7,8 @@
 //
 
 #import "TSLocationWeatherController.h"
+#import "TSWeatherData.h"
+#import "TSWeatherDayCell.h"
 
 @interface TSLocationWeatherController ()
 
@@ -14,28 +16,35 @@
 
 @implementation TSLocationWeatherController
 
-#pragma mark - Managing the detail item
-
-- (void)setDetailItem:(id)newDetailItem {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-            
-        // Update the view.
-        [self configureView];
-    }
+- (void)setLocation:(NSString *)location
+{
+    self.navigationItem.title = location;
 }
 
-- (void)configureView {
-    // Update the user interface for the detail item.
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
-    }
+- (NSString *)location
+{
+    return self.navigationItem.title;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
+#pragma mark - Table View
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.weatherData.daysWeather.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TSWeatherDayCell *cell = (TSWeatherDayCell *)[tableView dequeueReusableCellWithIdentifier:@"TSWeatherDayCell" forIndexPath:indexPath];
+    
+    cell.dayData = self.weatherData.daysWeather[indexPath.row];
+    
+    return cell;
 }
 
 @end

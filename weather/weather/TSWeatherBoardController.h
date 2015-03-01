@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface TSWeatherBoardController : UITableViewController
+
+- (void)addLocation:(NSString *)location;
+
 @end
 

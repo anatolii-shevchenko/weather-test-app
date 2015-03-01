@@ -1,8 +1,8 @@
 //
-//  TSLocationWeatherController.h
+//  TSLocationCell.h
 //  weather
 //
-//  Created by Tolik on 2/28/15.
+//  Created by Tolik on 3/1/15.
 //  Copyright (c) 2015 Tolik Shevchenko. All rights reserved.
 //
 
@@ -10,8 +10,9 @@
 
 @class TSWeatherData;
 
-@interface TSLocationWeatherController : UITableViewController
+@interface TSLocationCell : UITableViewCell
+
 @property (nonatomic, strong) NSString *location;
 @property (nonatomic, strong) TSWeatherData *weatherData;
-@end
 
+@end

@@ -19,6 +19,8 @@
 		1A20EFAB1AA24AE9003BE111 /* TSWeatherData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A20EFAA1AA24AE9003BE111 /* TSWeatherData.m */; };
 		1A20EFB11AA2637D003BE111 /* TSWeatherDayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A20EFB01AA2637D003BE111 /* TSWeatherDayData.m */; };
 		1AC968DA1AA27F8500D81538 /* TSAddLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC968D91AA27F8500D81538 /* TSAddLocationController.m */; };
+		1AC968DD1AA3080D00D81538 /* TSLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC968DC1AA3080D00D81538 /* TSLocationCell.m */; };
+		1AC968E01AA316A100D81538 /* TSWeatherDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC968DF1AA316A100D81538 /* TSWeatherDayCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,10 @@
 		1A20EFB01AA2637D003BE111 /* TSWeatherDayData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSWeatherDayData.m; path = model/TSWeatherDayData.m; sourceTree = "<group>"; };
 		1AC968D81AA27F8500D81538 /* TSAddLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAddLocationController.h; sourceTree = "<group>"; };
 		1AC968D91AA27F8500D81538 /* TSAddLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAddLocationController.m; sourceTree = "<group>"; };
+		1AC968DB1AA3080D00D81538 /* TSLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSLocationCell.h; sourceTree = "<group>"; };
+		1AC968DC1AA3080D00D81538 /* TSLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSLocationCell.m; sourceTree = "<group>"; };
+		1AC968DE1AA316A100D81538 /* TSWeatherDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSWeatherDayCell.h; sourceTree = "<group>"; };
+		1AC968DF1AA316A100D81538 /* TSWeatherDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSWeatherDayCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,10 @@
 				1A20EF9F1AA243E0003BE111 /* model */,
 				1A20EF7A1AA1A13D003BE111 /* AppDelegate.h */,
 				1A20EF7B1AA1A13D003BE111 /* AppDelegate.m */,
+				1AC968DB1AA3080D00D81538 /* TSLocationCell.h */,
+				1AC968DC1AA3080D00D81538 /* TSLocationCell.m */,
+				1AC968DE1AA316A100D81538 /* TSWeatherDayCell.h */,
+				1AC968DF1AA316A100D81538 /* TSWeatherDayCell.m */,
 				1AC968D81AA27F8500D81538 /* TSAddLocationController.h */,
 				1AC968D91AA27F8500D81538 /* TSAddLocationController.m */,
 				1A20EF7D1AA1A13D003BE111 /* TSWeatherBoardController.h */,
@@ -253,12 +263,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A20EFA51AA245F5003BE111 /* TSWeatherProvider.m in Sources */,
+				1AC968DD1AA3080D00D81538 /* TSLocationCell.m in Sources */,
 				1AC968DA1AA27F8500D81538 /* TSAddLocationController.m in Sources */,
 				1A20EF7C1AA1A13D003BE111 /* AppDelegate.m in Sources */,
 				1A20EF7F1AA1A13D003BE111 /* TSWeatherBoardController.m in Sources */,
 				1A20EF791AA1A13D003BE111 /* main.m in Sources */,
 				1A20EFAB1AA24AE9003BE111 /* TSWeatherData.m in Sources */,
 				1A20EFB11AA2637D003BE111 /* TSWeatherDayData.m in Sources */,
+				1AC968E01AA316A100D81538 /* TSWeatherDayCell.m in Sources */,
 				1A20EF821AA1A13D003BE111 /* TSLocationWeatherController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
