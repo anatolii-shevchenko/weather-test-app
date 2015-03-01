@@ -12,6 +12,8 @@
 #import "TSWeatherProvider.h"
 #import "TSLocationCell.h"
 
+static NSString *const kTSLocationsStoringKey = @"locations";
+
 @interface TSWeatherBoardController ()
 
 @property (nonatomic, strong) NSMutableArray *locationsArray;
@@ -25,13 +27,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.locationsArray = [[NSMutableArray alloc] init];
+    [self restoreLocations];
+    
+    if (nil == self.locationsArray)
+    {
+        self.locationsArray = [[NSMutableArray alloc] init];
+    }
+    
     self.locationsDataDictionary = [[NSMutableDictionary alloc] init];
     self.weatherProvider = [[TSWeatherProvider alloc] initWithAPIKey:@"ad4537fa672786f7d9cffc56dff70"];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(storeLocations) name:UIApplicationWillResignActiveNotification object:nil];
+    
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     [self updateEditButtonState];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
@@ -63,6 +77,16 @@
 - (void)updateEditButtonState
 {
     self.editButtonItem.enabled = (self.locationsArray.count != 0);
+}
+
+- (void)storeLocations
+{
+    [[NSUserDefaults standardUserDefaults] setObject:self.locationsArray forKey:kTSLocationsStoringKey];
+}
+
+- (void)restoreLocations
+{
+    self.locationsArray = [[NSUserDefaults standardUserDefaults] objectForKey:kTSLocationsStoringKey];
 }
 
 #pragma mark - Segues
