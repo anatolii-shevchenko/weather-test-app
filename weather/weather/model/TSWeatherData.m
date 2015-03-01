@@ -7,10 +7,11 @@
 //
 
 #import "TSWeatherData.h"
+#import "TSWeatherDayData.h"
 
 @implementation TSWeatherData
 
-- (id)init
+- (instancetype)init
 {
     return [self initWithDictionary:nil];
 }

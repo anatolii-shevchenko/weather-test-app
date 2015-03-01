@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TSWeatherData.h"
+
+@class TSWeatherData;
 
 @interface TSWeatherProvider : NSObject
 
 @property (nonatomic, strong, readonly) NSString *APIKey;
 
-- (id)initWithAPIKey:(NSString *)APIKey NS_DESIGNATED_INITIALIZER;
-- (void)weatherForLocation:(NSString *)location days:(int)days withBlock:(void (^)(TSWeatherData *data))block;
+- (instancetype)initWithAPIKey:(NSString *)APIKey NS_DESIGNATED_INITIALIZER;
+- (void)weatherForLocation:(NSString *)location days:(NSUInteger)days completionBlock:(void (^)(TSWeatherData *data))block;
 
 @end

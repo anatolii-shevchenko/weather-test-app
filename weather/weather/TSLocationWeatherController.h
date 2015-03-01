@@ -11,7 +11,9 @@
 @class TSWeatherData;
 
 @interface TSLocationWeatherController : UITableViewController
+
 @property (nonatomic, strong) NSString *location;
 @property (nonatomic, strong) TSWeatherData *weatherData;
+
 @end
 

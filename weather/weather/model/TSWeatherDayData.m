@@ -16,13 +16,13 @@
     if (nil == formatter)
     {
         formatter = [[NSDateFormatter alloc] init];
-        formatter.dateFormat = @"yyyy-M-dd";
+        formatter.dateFormat = @"yyyy-MM-dd";
         formatter.timeZone = 0;
     }
     return [formatter dateFromString:string];
 }
 
-- (id)init
+- (instancetype)init
 {
     return [self initWithDictionary:nil];
 }

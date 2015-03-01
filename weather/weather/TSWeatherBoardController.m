@@ -10,12 +10,14 @@
 #import "TSLocationWeatherController.h"
 #import "TSWeatherProvider.h"
 #import "TSLocationCell.h"
-
 #import "weather-Swift.h"
 
+static NSString *const kTSWorldWeatherOnlineApiKey = @"ad4537fa672786f7d9cffc56dff70";
+static NSString *const kTSGooglePlacesApiKey = @"AIzaSyCOw1A4AcJfsD0KVfxLkxptL7yncEAjAYA";
 static NSString *const kTSLocationsStoringKey = @"locations";
+static const NSUInteger kTSWeatherForecastDaysCount = 5;
 
-@interface TSWeatherBoardController ()<GooglePlacesAutocompleteDelegate>
+@interface TSWeatherBoardController () <GooglePlacesAutocompleteDelegate>
 
 @property (nonatomic, strong) NSMutableArray *locationsArray;
 @property (nonatomic, strong) NSMutableDictionary *locationsDataDictionary;
@@ -32,27 +34,38 @@ static NSString *const kTSLocationsStoringKey = @"locations";
 {
     [super viewDidLoad];
     
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(loadDataForAllLocations) forControlEvents:UIControlEventValueChanged];
-    
-    self.locationsDataDictionary = [[NSMutableDictionary alloc] init];
-    self.weatherProvider = [[TSWeatherProvider alloc] initWithAPIKey:@"ad4537fa672786f7d9cffc56dff70"];
-    [self restoreLocations];
-    
-    if (nil == self.locationsArray)
-    {
-        self.locationsArray = [[NSMutableArray alloc] init];
-    }
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(storeLocations) name:UIApplicationWillResignActiveNotification object:nil];
-    
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self
+                            action:@selector(loadDataForAllLocations)
+                  forControlEvents:UIControlEventValueChanged];
+    
+    self.weatherProvider = [[TSWeatherProvider alloc] initWithAPIKey:kTSWorldWeatherOnlineApiKey];
+    self.locationsDataDictionary = [[NSMutableDictionary alloc] init];
+    
+    [self restoreLocations];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(storeLocations)
+                                                 name:UIApplicationWillResignActiveNotification
+                                               object:nil];
+    
     [self updateEditButtonState];
 }
 
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (IBAction)presentAddLocationController:(id)sender
+{
+    GooglePlacesAutocompleteContainer *controller = [[GooglePlacesAutocompleteContainer alloc] initWithNibName:@"GooglePlacesAutocomplete" bundle:nil];
+    controller.apiKey = kTSGooglePlacesApiKey;
+    controller.delegate = self;
+    
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
@@ -64,14 +77,31 @@ static NSString *const kTSLocationsStoringKey = @"locations";
     }
 }
 
-- (IBAction)presentAddLocationController:(id)sender
+- (void)updateEditButtonState
 {
-    GooglePlacesAutocompleteContainer *controller = [[GooglePlacesAutocompleteContainer alloc] initWithNibName:@"GooglePlacesAutocomplete" bundle:nil];
-    controller.apiKey = @"AIzaSyCOw1A4AcJfsD0KVfxLkxptL7yncEAjAYA";
-    controller.delegate = self;
-
-    [self.navigationController pushViewController:controller animated:YES];
+    self.editButtonItem.enabled = (self.locationsArray.count != 0);
 }
+
+#pragma mark - location storing/restoring
+
+- (void)storeLocations
+{
+    [[NSUserDefaults standardUserDefaults] setObject:self.locationsArray forKey:kTSLocationsStoringKey];
+}
+
+- (void)restoreLocations
+{
+    self.locationsArray = [[NSUserDefaults standardUserDefaults] objectForKey:kTSLocationsStoringKey];
+    
+    if (nil == self.locationsArray)
+    {
+        self.locationsArray = [[NSMutableArray alloc] init];
+    }
+    
+    [self loadDataForAllLocations];
+}
+
+#pragma mark -
 
 - (void)addLocation:(NSString *)location;
 {
@@ -84,39 +114,6 @@ static NSString *const kTSLocationsStoringKey = @"locations";
     [self updateEditButtonState];
 }
 
-- (void)loadDataForLocation:(NSString *)location
-{
-    [self.weatherProvider weatherForLocation:location days:5 withBlock:^(TSWeatherData *data) {
-        if (nil != data)
-        {
-            [self.locationsDataDictionary setObject:data forKey:location];
-            [self.tableView reloadData];
-        }
-        
-        self.updatedItemsCount++;
-        if (self.updatedItemsCount == self.locationsArray.count)
-        {
-            [self.refreshControl endRefreshing];
-        }
-    }];
-}
-
-- (void)updateEditButtonState
-{
-    self.editButtonItem.enabled = (self.locationsArray.count != 0);
-}
-
-- (void)storeLocations
-{
-    [[NSUserDefaults standardUserDefaults] setObject:self.locationsArray forKey:kTSLocationsStoringKey];
-}
-
-- (void)restoreLocations
-{
-    self.locationsArray = [[NSUserDefaults standardUserDefaults] objectForKey:kTSLocationsStoringKey];
-    [self loadDataForAllLocations];
-}
-
 - (void)loadDataForAllLocations
 {
     self.updatedItemsCount = 0;
@@ -124,6 +121,25 @@ static NSString *const kTSLocationsStoringKey = @"locations";
     {
         [self loadDataForLocation:location];
     }
+}
+
+- (void)loadDataForLocation:(NSString *)location
+{
+    [self.weatherProvider weatherForLocation:location
+                                        days:kTSWeatherForecastDaysCount
+                                   completionBlock:^(TSWeatherData *data) {
+                                       if (nil != data)
+                                       {
+                                           [self.locationsDataDictionary setObject:data forKey:location];
+                                           [self.tableView reloadData];
+                                       }
+                                       
+                                       self.updatedItemsCount++;
+                                       if (self.updatedItemsCount == self.locationsArray.count)
+                                       {
+                                           [self.refreshControl endRefreshing];
+                                       }
+                                   }];
 }
 
 #pragma mark - GooglePlacesAutocompleteContainer delegate
@@ -134,7 +150,7 @@ static NSString *const kTSLocationsStoringKey = @"locations";
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-#pragma mark - Segues
+#pragma mark - segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

@@ -7,6 +7,7 @@
 //
 
 #import "TSWeatherProvider.h"
+#import "TSWeatherData.h"
 
 @interface TSWeatherProvider()
 @property (nonatomic, strong) NSURLSession *session;
@@ -14,18 +15,19 @@
 
 @implementation TSWeatherProvider
 
-- (id)init
+- (instancetype)init
 {
     return [self initWithAPIKey:nil];
 }
 
-- (id)initWithAPIKey:(NSString *)APIKey
+- (instancetype)initWithAPIKey:(NSString *)APIKey
 {
     if (self = [super init])
     {
         if (nil == APIKey)
         {
-            @throw([NSException exceptionWithName:@"InvalidArgumentException" reason:@"API Key cannot be empty." userInfo:nil]);
+            NSLog(@"World Weather Online API key cannot be empty");
+            return nil;
         }
         
         _APIKey = APIKey;
@@ -35,7 +37,7 @@
     return self;
 }
 
-- (void)weatherForLocation:(NSString *)location days:(int)days withBlock:(void (^)(TSWeatherData *data))block
+- (void)weatherForLocation:(NSString *)location days:(NSUInteger)days completionBlock:(void (^)(TSWeatherData *data))block
 {
     NSURL *url = [self URLWithBase:@"api.worldweatheronline.com/free/v2/weather.ashx"
                         parameters:@{@"key": self.APIKey,
