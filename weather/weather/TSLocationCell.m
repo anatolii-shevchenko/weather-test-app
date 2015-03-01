@@ -8,6 +8,7 @@
 
 #import "TSLocationCell.h"
 #import "TSWeatherData.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface TSLocationCell ()
 
@@ -35,6 +36,7 @@
     {
         _weatherData = weatherData;
         self.tempLabel.text = [NSString stringWithFormat:@"%ld °C", (long)weatherData.tempC];
+        [self.iconImageView setImageWithURL:weatherData.imageURL];
     }
 }
 

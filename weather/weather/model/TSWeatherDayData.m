@@ -50,7 +50,7 @@
         
         _minTempC = [minTempC integerValue];
         _maxTempC = [maxTempC integerValue];
-        _imageURL = imageURL;
+        _imageURL = [NSURL URLWithString:imageURL];
         _date = [[self class] dateFromString:dateString];
     }
     

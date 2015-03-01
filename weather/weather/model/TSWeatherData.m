@@ -37,7 +37,7 @@
         }
             
         _tempC = [tempC integerValue];
-        _imageURL = imageURL;
+        _imageURL = [NSURL URLWithString:imageURL];
         
         NSMutableArray *daysWeatherArray = [[NSMutableArray alloc] init];
         for (NSDictionary *dayDictionary in daysWeather)

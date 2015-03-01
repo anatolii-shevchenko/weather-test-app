@@ -8,6 +8,7 @@
 
 #import "TSWeatherDayCell.h"
 #import "TSWeatherDayData.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface TSWeatherDayCell ()
 
@@ -38,6 +39,7 @@
         _dayData = dayData;
         self.tempLabel.text = [NSString stringWithFormat:@"%ld - %ld °C", (long)dayData.minTempC, (long)dayData.maxTempC];
         self.dateLabel.text = [[self class] stringFromDate:dayData.date];
+        [self.iconImageView setImageWithURL:dayData.imageURL];
     }
 }
 
