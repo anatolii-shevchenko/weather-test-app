@@ -21,51 +21,6 @@
             </objects>
             <point key="canvasLocation" x="-148" y="64"/>
         </scene>
-        <!--TSAddLocationController-->
-        <scene sceneID="XKT-Ko-0dp">
-            <objects>
-                <viewController title="TSAddLocationController" id="hXU-mz-jLT" customClass="TSAddLocationController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uV1-W7-Wg0"/>
-                        <viewControllerLayoutGuide type="bottom" id="dvI-df-dc0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9jg-oq-2oE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PVq-ww-WYe">
-                                <rect key="frame" x="16" y="72" width="288" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="PVq-ww-WYe" firstAttribute="top" secondItem="uV1-W7-Wg0" secondAttribute="bottom" constant="8" id="NrK-J7-Xdc"/>
-                            <constraint firstItem="PVq-ww-WYe" firstAttribute="trailing" secondItem="9jg-oq-2oE" secondAttribute="trailingMargin" id="Xxk-vq-nKf"/>
-                            <constraint firstItem="PVq-ww-WYe" firstAttribute="leading" secondItem="9jg-oq-2oE" secondAttribute="leadingMargin" id="s0u-JT-IgH"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Add Location" id="vD2-Ag-fJs">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6GH-Ao-Pmg">
-                            <connections>
-                                <action selector="onCancel:" destination="hXU-mz-jLT" id="yrJ-WE-z5y"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="o0U-T6-pc2">
-                            <connections>
-                                <action selector="onDone:" destination="hXU-mz-jLT" id="MGt-1G-LRk"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="locationField" destination="PVq-ww-WYe" id="dm8-gz-nts"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RYO-3p-Pl6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="689" y="-361"/>
-        </scene>
         <!--TSWeatherBoardController-->
         <scene sceneID="VgW-fR-Quf">
             <objects>
@@ -150,7 +105,7 @@
                     <navigationItem key="navigationItem" title="Locations List" id="tQt-TN-PWz">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZcT-ST-fjV">
                             <connections>
-                                <segue destination="hXU-mz-jLT" kind="show" identifier="TSAddLocationController" id="6cA-Cq-lRm"/>
+                                <action selector="presentAddLocationController:" destination="pGg-6v-bdr" id="QfC-iA-fwv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

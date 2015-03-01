@@ -8,17 +8,20 @@
 
 #import "TSWeatherBoardController.h"
 #import "TSLocationWeatherController.h"
-#import "TSAddLocationController.h"
 #import "TSWeatherProvider.h"
 #import "TSLocationCell.h"
 
+#import "weather-Swift.h"
+
 static NSString *const kTSLocationsStoringKey = @"locations";
 
-@interface TSWeatherBoardController ()
+@interface TSWeatherBoardController ()<GooglePlacesAutocompleteDelegate>
 
 @property (nonatomic, strong) NSMutableArray *locationsArray;
 @property (nonatomic, strong) NSMutableDictionary *locationsDataDictionary;
 @property (nonatomic, strong) TSWeatherProvider *weatherProvider;
+
+- (IBAction)presentAddLocationController:(id)sender;
 
 @end
 
@@ -27,15 +30,15 @@ static NSString *const kTSLocationsStoringKey = @"locations";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.locationsDataDictionary = [[NSMutableDictionary alloc] init];
+    self.weatherProvider = [[TSWeatherProvider alloc] initWithAPIKey:@"ad4537fa672786f7d9cffc56dff70"];
     [self restoreLocations];
     
     if (nil == self.locationsArray)
     {
         self.locationsArray = [[NSMutableArray alloc] init];
     }
-    
-    self.locationsDataDictionary = [[NSMutableDictionary alloc] init];
-    self.weatherProvider = [[TSWeatherProvider alloc] initWithAPIKey:@"ad4537fa672786f7d9cffc56dff70"];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(storeLocations) name:UIApplicationWillResignActiveNotification object:nil];
     
@@ -57,7 +60,27 @@ static NSString *const kTSLocationsStoringKey = @"locations";
     }
 }
 
+- (IBAction)presentAddLocationController:(id)sender
+{
+    GooglePlacesAutocompleteContainer *controller = [[GooglePlacesAutocompleteContainer alloc] initWithNibName:@"GooglePlacesAutocomplete" bundle:nil];
+    controller.apiKey = @"AIzaSyCOw1A4AcJfsD0KVfxLkxptL7yncEAjAYA";
+    controller.delegate = self;
+
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
 - (void)addLocation:(NSString *)location;
+{
+    [self loadDataForLocation:location];
+    
+    [self.locationsArray insertObject:location atIndex:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    [self updateEditButtonState];
+}
+
+- (void)loadDataForLocation:(NSString *)location
 {
     [self.weatherProvider weatherForLocation:location days:5 withBlock:^(TSWeatherData *data) {
         if (nil != data)
@@ -66,12 +89,6 @@ static NSString *const kTSLocationsStoringKey = @"locations";
             [self.tableView reloadData];
         }
     }];
-    
-    [self.locationsArray insertObject:location atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    
-    [self updateEditButtonState];
 }
 
 - (void)updateEditButtonState
@@ -87,6 +104,19 @@ static NSString *const kTSLocationsStoringKey = @"locations";
 - (void)restoreLocations
 {
     self.locationsArray = [[NSUserDefaults standardUserDefaults] objectForKey:kTSLocationsStoringKey];
+    
+    for (NSString *location in self.locationsArray)
+    {
+        [self loadDataForLocation:location];
+    }
+}
+
+#pragma mark - GooglePlacesAutocompleteContainer delegate
+
+- (void)placeSelected:(Place *)place
+{
+    [self addLocation:place.description];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - Segues
@@ -101,10 +131,6 @@ static NSString *const kTSLocationsStoringKey = @"locations";
         
         ((TSLocationWeatherController *)segue.destinationViewController).location = location;
         ((TSLocationWeatherController *)segue.destinationViewController).weatherData = weatherData;
-    }
-    else if ([[segue identifier] isEqualToString:@"TSAddLocationController"])
-    {
-        ((TSAddLocationController *)segue.destinationViewController).boardController = self;
     }
 }
 

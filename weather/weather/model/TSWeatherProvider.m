@@ -69,6 +69,7 @@
     }
     
     result = [result substringToIndex:[result length] - 1];
+    result = [result stringByAddingPercentEscapesUsingEncoding:NSUnicodeStringEncoding];
     return [NSURL URLWithString:result];
 }
 
