@@ -34,6 +34,11 @@ static const NSUInteger kTSWeatherForecastDaysCount = 5;
 {
     [super viewDidLoad];
     
+    UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:self.tableView.frame];
+    backgroundView.image = [UIImage imageNamed:@"BoardBackgroundImage"];
+    backgroundView.alpha = 0.2f;
+    self.tableView.backgroundView = backgroundView;
+    
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     self.refreshControl = [[UIRefreshControl alloc] init];

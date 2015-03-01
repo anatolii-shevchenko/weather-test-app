@@ -19,7 +19,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eq9-QA-ai8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-148" y="64"/>
+            <point key="canvasLocation" x="-165" y="59"/>
         </scene>
         <!--TSWeatherBoardController-->
         <scene sceneID="VgW-fR-Quf">
@@ -38,7 +38,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uoz-iC-v4O">
-                                            <rect key="frame" x="0.0" y="58" width="287" height="1"/>
+                                            <rect key="frame" x="0.0" y="59" width="287" height="1"/>
                                             <color key="backgroundColor" red="0.85221354166666663" green="0.85221354166666663" blue="0.85221354166666663" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="Wy3-gc-KSG"/>
@@ -78,7 +78,7 @@
                                         <constraint firstItem="VC5-xk-Tlo" firstAttribute="leading" secondItem="d3P-M7-ByW" secondAttribute="leadingMargin" id="f9i-a8-XK4"/>
                                         <constraint firstItem="uoz-iC-v4O" firstAttribute="leading" secondItem="d3P-M7-ByW" secondAttribute="leadingMargin" constant="-8" id="fj7-mB-ow5"/>
                                         <constraint firstItem="VC5-xk-Tlo" firstAttribute="centerY" secondItem="N6f-yY-Mzf" secondAttribute="centerY" id="pam-Yl-rrY"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="uoz-iC-v4O" secondAttribute="bottom" constant="-7" id="r4i-ab-bfT"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="uoz-iC-v4O" secondAttribute="bottom" constant="-8" id="r4i-ab-bfT"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
@@ -86,7 +86,7 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="0.70000000000000007" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="iconImageView" destination="N6f-yY-Mzf" id="eDy-lF-Nbm"/>
@@ -130,7 +130,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f6b-6C-ZK2">
-                                            <rect key="frame" x="0.0" y="48" width="320" height="1"/>
+                                            <rect key="frame" x="0.0" y="49" width="320" height="1"/>
                                             <color key="backgroundColor" red="0.85221354169999997" green="0.85221354169999997" blue="0.85221354169999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="4cR-fd-1ZZ"/>
@@ -161,7 +161,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="50j-m2-TKa" firstAttribute="centerY" secondItem="bOy-bX-KhX" secondAttribute="centerY" id="Giv-dA-I1A"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="f6b-6C-ZK2" secondAttribute="bottom" constant="-7" id="Gsq-7a-GQ5"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="f6b-6C-ZK2" secondAttribute="bottom" constant="-8" id="Gsq-7a-GQ5"/>
                                         <constraint firstItem="HVB-im-Qz7" firstAttribute="baseline" secondItem="50j-m2-TKa" secondAttribute="baseline" id="NJr-C4-kIG"/>
                                         <constraint firstItem="HVB-im-Qz7" firstAttribute="leading" secondItem="bOy-bX-KhX" secondAttribute="trailing" constant="5" id="QjL-BW-IrS"/>
                                         <constraint firstAttribute="centerY" secondItem="50j-m2-TKa" secondAttribute="centerY" id="Z2d-ey-DV6"/>
@@ -172,6 +172,7 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="HVB-im-Qz7" secondAttribute="trailing" id="vim-I0-BBv"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="1" alpha="0.70000000000000007" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dateLabel" destination="50j-m2-TKa" id="wQe-wx-fNs"/>
                                     <outlet property="iconImageView" destination="bOy-bX-KhX" id="fxi-tT-5n3"/>
@@ -188,7 +189,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLN-Cj-mPy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="689" y="283"/>
+            <point key="canvasLocation" x="672" y="59"/>
         </scene>
     </scenes>
 </document>

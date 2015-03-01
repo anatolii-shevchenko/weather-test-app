@@ -20,6 +20,11 @@
 {
     [super viewDidLoad];
     self.navigationController.navigationBar.topItem.title = @"";
+    
+    UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:self.tableView.frame];
+    backgroundView.image = [UIImage imageNamed:@"LocationBackgroundImage"];
+    backgroundView.alpha = 0.2f;
+    self.tableView.backgroundView = backgroundView;
 }
 
 - (void)setLocation:(NSString *)location
