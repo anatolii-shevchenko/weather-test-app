@@ -118,7 +118,7 @@
         <scene sceneID="fAp-Kl-8f9">
             <objects>
                 <tableViewController id="VnY-mJ-0lu" customClass="TSLocationWeatherController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="c8P-a3-uOS">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="58" sectionHeaderHeight="22" sectionFooterHeight="22" id="c8P-a3-uOS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -130,29 +130,29 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f6b-6C-ZK2">
-                                            <rect key="frame" x="0.0" y="49" width="320" height="1"/>
+                                            <rect key="frame" x="0.0" y="57" width="320" height="1"/>
                                             <color key="backgroundColor" red="0.85221354169999997" green="0.85221354169999997" blue="0.85221354169999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="4cR-fd-1ZZ"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50j-m2-TKa">
-                                            <rect key="frame" x="8" y="14" width="38" height="22"/>
+                                            <rect key="frame" x="8" y="18" width="38" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="-- - -- °C" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVB-im-Qz7">
-                                            <rect key="frame" x="222" y="14" width="90" height="22"/>
+                                            <rect key="frame" x="212" y="18" width="100" height="22"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="90" id="hKa-nw-F9R"/>
+                                                <constraint firstAttribute="width" constant="100" id="hKa-nw-F9R"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bOy-bX-KhX">
-                                            <rect key="frame" x="185" y="9" width="32" height="32"/>
+                                            <rect key="frame" x="175" y="13" width="32" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="32" id="wso-SJ-tx5"/>
                                                 <constraint firstAttribute="width" constant="32" id="yPG-fS-sLQ"/>
