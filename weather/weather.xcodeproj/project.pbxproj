@@ -14,7 +14,7 @@
 		1A20EF851AA1A13D003BE111 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A20EF831AA1A13D003BE111 /* Main.storyboard */; };
 		1A20EF871AA1A13D003BE111 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A20EF861AA1A13D003BE111 /* Images.xcassets */; };
 		1A20EF8A1AA1A13E003BE111 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A20EF881AA1A13E003BE111 /* LaunchScreen.xib */; };
-		1A20EF961AA1A13E003BE111 /* weatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A20EF951AA1A13E003BE111 /* weatherTests.m */; };
+		1A20EF961AA1A13E003BE111 /* TSWeatherProviderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A20EF951AA1A13E003BE111 /* TSWeatherProviderTests.m */; };
 		1A20EFA51AA245F5003BE111 /* TSWeatherProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A20EFA41AA245F5003BE111 /* TSWeatherProvider.m */; };
 		1A20EFAB1AA24AE9003BE111 /* TSWeatherData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A20EFAA1AA24AE9003BE111 /* TSWeatherData.m */; };
 		1A20EFB11AA2637D003BE111 /* TSWeatherDayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A20EFB01AA2637D003BE111 /* TSWeatherDayData.m */; };
@@ -23,6 +23,8 @@
 		1AC968EC1AA359B200D81538 /* GooglePlacesAutocomplete.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC968EA1AA359B200D81538 /* GooglePlacesAutocomplete.xib */; };
 		1AC968EE1AA35B0E00D81538 /* GooglePlacesAutocomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC968ED1AA35B0E00D81538 /* GooglePlacesAutocomplete.swift */; };
 		51F07B5C23FA9CFAD366A594 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A26A2802441E8E3270F0E8D /* libPods.a */; };
+		9CC9FDE91AA46FDD0051E3F4 /* TSWeatherDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC9FDE71AA46FDD0051E3F4 /* TSWeatherDataTests.m */; };
+		9CC9FDEA1AA46FDD0051E3F4 /* TSWeatherDayDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC9FDE81AA46FDD0051E3F4 /* TSWeatherDayDataTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +52,7 @@
 		1A20EF891AA1A13E003BE111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1A20EF8F1AA1A13E003BE111 /* weatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A20EF941AA1A13E003BE111 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1A20EF951AA1A13E003BE111 /* weatherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = weatherTests.m; sourceTree = "<group>"; };
+		1A20EF951AA1A13E003BE111 /* TSWeatherProviderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSWeatherProviderTests.m; sourceTree = "<group>"; };
 		1A20EFA31AA245F5003BE111 /* TSWeatherProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSWeatherProvider.h; path = model/TSWeatherProvider.h; sourceTree = "<group>"; };
 		1A20EFA41AA245F5003BE111 /* TSWeatherProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSWeatherProvider.m; path = model/TSWeatherProvider.m; sourceTree = "<group>"; };
 		1A20EFA91AA24AE9003BE111 /* TSWeatherData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSWeatherData.h; path = model/TSWeatherData.h; sourceTree = "<group>"; };
@@ -65,6 +67,8 @@
 		1AC968EA1AA359B200D81538 /* GooglePlacesAutocomplete.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GooglePlacesAutocomplete.xib; sourceTree = "<group>"; };
 		1AC968ED1AA35B0E00D81538 /* GooglePlacesAutocomplete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacesAutocomplete.swift; sourceTree = "<group>"; };
 		4A26A2802441E8E3270F0E8D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CC9FDE71AA46FDD0051E3F4 /* TSWeatherDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSWeatherDataTests.m; sourceTree = "<group>"; };
+		9CC9FDE81AA46FDD0051E3F4 /* TSWeatherDayDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSWeatherDayDataTests.m; sourceTree = "<group>"; };
 		AB4029F3E7FA3F66450FD688 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CE78715ABD8D4D36877416C5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,7 +144,9 @@
 		1A20EF921AA1A13E003BE111 /* weatherTests */ = {
 			isa = PBXGroup;
 			children = (
-				1A20EF951AA1A13E003BE111 /* weatherTests.m */,
+				1A20EF951AA1A13E003BE111 /* TSWeatherProviderTests.m */,
+				9CC9FDE71AA46FDD0051E3F4 /* TSWeatherDataTests.m */,
+				9CC9FDE81AA46FDD0051E3F4 /* TSWeatherDayDataTests.m */,
 				1A20EF931AA1A13E003BE111 /* Supporting Files */,
 			);
 			path = weatherTests;
@@ -358,7 +364,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A20EF961AA1A13E003BE111 /* weatherTests.m in Sources */,
+				9CC9FDEA1AA46FDD0051E3F4 /* TSWeatherDayDataTests.m in Sources */,
+				1A20EF961AA1A13E003BE111 /* TSWeatherProviderTests.m in Sources */,
+				9CC9FDE91AA46FDD0051E3F4 /* TSWeatherDataTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
